@@ -1,5 +1,9 @@
+streamlit
+pandas
+numpy
+python-dotenv
 sqlalchemy
 psycopg2-binary
-python-dotenv
-pandas
-streamlit
+google-genai
+sqlglot
+sentence-transformers
