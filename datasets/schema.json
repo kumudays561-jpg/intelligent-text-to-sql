@@ -1,0 +1,209 @@
+{
+    "categories": {
+        "columns": [
+            {
+                "name": "category_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "category_name",
+                "type": "VARCHAR(100)",
+                "nullable": false
+            }
+        ],
+        "primary_key": [
+            "category_id"
+        ],
+        "foreign_keys": []
+    },
+    "products": {
+        "columns": [
+            {
+                "name": "product_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "name",
+                "type": "VARCHAR(150)",
+                "nullable": false
+            },
+            {
+                "name": "price",
+                "type": "NUMERIC(10, 2)",
+                "nullable": true
+            },
+            {
+                "name": "category_id",
+                "type": "INTEGER",
+                "nullable": true
+            }
+        ],
+        "primary_key": [
+            "product_id"
+        ],
+        "foreign_keys": [
+            {
+                "column": [
+                    "category_id"
+                ],
+                "references_table": "categories",
+                "references_column": [
+                    "category_id"
+                ]
+            }
+        ]
+    },
+    "customers": {
+        "columns": [
+            {
+                "name": "customer_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "name",
+                "type": "VARCHAR(100)",
+                "nullable": false
+            },
+            {
+                "name": "city",
+                "type": "VARCHAR(100)",
+                "nullable": true
+            },
+            {
+                "name": "email",
+                "type": "VARCHAR(150)",
+                "nullable": true
+            }
+        ],
+        "primary_key": [
+            "customer_id"
+        ],
+        "foreign_keys": []
+    },
+    "orders": {
+        "columns": [
+            {
+                "name": "order_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "customer_id",
+                "type": "INTEGER",
+                "nullable": true
+            },
+            {
+                "name": "order_date",
+                "type": "DATE",
+                "nullable": true
+            },
+            {
+                "name": "status",
+                "type": "VARCHAR(30)",
+                "nullable": true
+            }
+        ],
+        "primary_key": [
+            "order_id"
+        ],
+        "foreign_keys": [
+            {
+                "column": [
+                    "customer_id"
+                ],
+                "references_table": "customers",
+                "references_column": [
+                    "customer_id"
+                ]
+            }
+        ]
+    },
+    "order_items": {
+        "columns": [
+            {
+                "name": "item_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "order_id",
+                "type": "INTEGER",
+                "nullable": true
+            },
+            {
+                "name": "product_id",
+                "type": "INTEGER",
+                "nullable": true
+            },
+            {
+                "name": "quantity",
+                "type": "INTEGER",
+                "nullable": true
+            }
+        ],
+        "primary_key": [
+            "item_id"
+        ],
+        "foreign_keys": [
+            {
+                "column": [
+                    "order_id"
+                ],
+                "references_table": "orders",
+                "references_column": [
+                    "order_id"
+                ]
+            },
+            {
+                "column": [
+                    "product_id"
+                ],
+                "references_table": "products",
+                "references_column": [
+                    "product_id"
+                ]
+            }
+        ]
+    },
+    "payments": {
+        "columns": [
+            {
+                "name": "payment_id",
+                "type": "INTEGER",
+                "nullable": false
+            },
+            {
+                "name": "order_id",
+                "type": "INTEGER",
+                "nullable": true
+            },
+            {
+                "name": "amount",
+                "type": "NUMERIC(10, 2)",
+                "nullable": true
+            },
+            {
+                "name": "payment_status",
+                "type": "VARCHAR(30)",
+                "nullable": true
+            }
+        ],
+        "primary_key": [
+            "payment_id"
+        ],
+        "foreign_keys": [
+            {
+                "column": [
+                    "order_id"
+                ],
+                "references_table": "orders",
+                "references_column": [
+                    "order_id"
+                ]
+            }
+        ]
+    }
+}

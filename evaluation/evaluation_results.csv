@@ -1,0 +1,9 @@
+Question,Status,Relevant Tables,Self Correction,Response Time (seconds),Error
+List all customers,Success,customers,False,6.85,
+Find all customers from Bangalore,Success,customers,False,4.06,
+Find all customers who have placed orders,Success,"customers, orders",False,3.69,
+Find the total quantity of products sold,Success,"categories, customers, order_items, orders, products",False,4.84,
+Find all products that cost more than 5000,Success,"categories, products",False,4.51,
+List the top 5 selling products,Success,"categories, customers, order_items, orders, products",False,3.75,
+Show the number of products in each category,Success,"categories, products",False,4.52,
+Display all orders with customer names,Success,"customers, orders",False,3.66,
