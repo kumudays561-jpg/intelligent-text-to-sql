@@ -1,0 +1,26 @@
+[
+    {
+        "table": "categories",
+        "content": "Table: categories\nColumns: category_id (INTEGER), category_name (VARCHAR(100))\nPrimary Keys: category_id\nForeign Key Relationships:\n No foreign keys."
+    },
+    {
+        "table": "products",
+        "content": "Table: products\nColumns: product_id (INTEGER), name (VARCHAR(150)), price (NUMERIC(10, 2)), category_id (INTEGER)\nPrimary Keys: product_id\nForeign Key Relationships:\n\ncategory_id references categories.category_id"
+    },
+    {
+        "table": "customers",
+        "content": "Table: customers\nColumns: customer_id (INTEGER), name (VARCHAR(100)), city (VARCHAR(100)), email (VARCHAR(150))\nPrimary Keys: customer_id\nForeign Key Relationships:\n No foreign keys."
+    },
+    {
+        "table": "orders",
+        "content": "Table: orders\nColumns: order_id (INTEGER), customer_id (INTEGER), order_date (DATE), status (VARCHAR(30))\nPrimary Keys: order_id\nForeign Key Relationships:\n\ncustomer_id references customers.customer_id"
+    },
+    {
+        "table": "order_items",
+        "content": "Table: order_items\nColumns: item_id (INTEGER), order_id (INTEGER), product_id (INTEGER), quantity (INTEGER)\nPrimary Keys: item_id\nForeign Key Relationships:\n\norder_id references orders.order_id\nproduct_id references products.product_id"
+    },
+    {
+        "table": "payments",
+        "content": "Table: payments\nColumns: payment_id (INTEGER), order_id (INTEGER), amount (NUMERIC(10, 2)), payment_status (VARCHAR(30))\nPrimary Keys: payment_id\nForeign Key Relationships:\n\norder_id references orders.order_id"
+    }
+]
